@@ -12,8 +12,6 @@ on:
 jobs:
   tag:
     runs-on: ubuntu-latest
-    env:
-      Version: ""
     steps:
       - name: Connect to Repo
         uses: actions/checkout@v3
