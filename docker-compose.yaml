@@ -1,0 +1,5 @@
+version: "3"
+services:
+  hw:
+    container_name: HelloWorldApp
+    build: .
