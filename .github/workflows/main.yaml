@@ -38,6 +38,13 @@ jobs:
           containerId=$(docker ps | grep hwapp | awk '{ print $1 }')
           echo $(docker ps | grep ${containerId})
           docker cp ${containerId}:/App/hello.txt ./Artifact
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: hwapp
+          format: 'sarif'
+          output: 'trivy-results.sarif'
           
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v3
